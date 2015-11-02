@@ -1,1 +1,7 @@
-{{outlet}}
+{{#if isAdministrator}}
+{{administrator-departements}}
+{{else if isManager}}
+{{manager-departements}}
+{{else if isUser}}
+{{user-departements}}
+{{/if}}
