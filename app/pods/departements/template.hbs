@@ -1,5 +1,10 @@
 {{#if isAdministrator}}
-{{administrator-departements}}
+
+{{administrator-departements model=model
+queryParams=queryParams page=page
+limit=limit query=query total=total
+firstRowNumber=firstRowNumber}}
+
 {{else if isManager}}
 {{manager-departements}}
 {{else if isUser}}
