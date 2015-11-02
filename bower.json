@@ -1,10 +1,10 @@
 {
   "name": "ppni-rev-client",
   "dependencies": {
-    "ember": "2.0.0",
+    "ember": "2.1.0",
     "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.5",
     "ember-cli-test-loader": "ember-cli-test-loader#0.2.1",
-    "ember-data": "2.0.0",
+    "ember-data": "2.1.0",
     "ember-load-initializers": "ember-cli/ember-load-initializers#0.1.7",
     "ember-qunit": "0.4.10",
     "ember-qunit-notifications": "0.1.0",
@@ -14,5 +14,12 @@
   },
   "resolutions": {
     "ember": "2.0.0"
+  },
+  "devDependencies": {
+    "AdminLTE": "admin-lte#~2.3.2",
+    "moment": "~2.10.6",
+    "bootstrap": "~3.3.5",
+    "hashids": "~1.0.2",
+    "font-awesome": "fontawesome#~4.4.0"
   }
 }

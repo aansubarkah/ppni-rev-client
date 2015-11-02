@@ -1,0 +1,79 @@
+<!--<div class="main-header">-->
+<header class="main-header">
+	<!-- Header Logo -->
+	{{#link-to "index" class="logo"}}
+	<span class="logo-mini">P</span>
+	<span class="logo-lg">PPNI</span>
+	{{/link-to}}
+	<!-- /Header logo -->
+
+	<!-- Header Nav -->
+	<nav class="navbar navbar-static-top" role="navigation">
+		<!-- Toggle Button -->
+		<a class="sidebar-toggle" role="button" data-toggle="offcanvas" href="#">
+			<span class="sr-only">Toggle navigation</span>
+		</a>
+		<!-- /Toggle Button -->
+		<!-- Left Nav -->
+		<div class="navbar-custom-menu">
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<!-- Menu Toggle Button -->
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="fa fa-user"></i>
+						<span class="hidden-xs">John Doe</span>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#"><i class="fa fa-key"></i>&nbsp;Reset Password</a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-male"></i>&nbsp;Profile</a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-sign-out"></i>&nbsp;Logout</a>
+						</li>
+					</ul>
+				</li>
+				<!-- Control Sidebar Toggle Button -->
+				<li>
+					<a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+				</li>
+			</ul>
+		</div>
+		<!-- /.Left Nav -->
+	</nav>
+	<!-- /.Header Nav -->
+	<!--</.div>-->
+</header>
+<aside class="control-sidebar main-sidebar">
+	<!--	<div class="sidebar-wrapper">-->
+	<!-- Inner sidebar -->
+	<section class="sidebar">
+		<!-- Sidebar Menu -->
+		<ul class="sidebar-menu">
+			<li class="header">Service</li>
+			<li>{{#link-to "index"}}<span>Direction</span>{{/link-to}}</li>
+			<li class="header">Dynamic Data</li>
+			<li>{{#link-to "index"}}<span>Traffic</span>{{/link-to}}</li>
+			<!--                <li>{{#link-to "markers"}}<span>Markers</span>{{/link-to}}</li>-->
+			<li class="header">Reference Data</li>
+			<li>{{#link-to "index"}}<span>Places</span>{{/link-to}}</li>
+			<li>{{#link-to "index"}}<span>Respondents</span>{{/link-to}}</li>
+			<!-- Optionally, you can add icons to the links -->
+			<li>{{#link-to "index"}}<span>Users</span>{{/link-to}}</li>
+			<li>{{#link-to "index"}}<span>Hierarchies</span>{{/link-to}}</li>
+			<li>{{#link-to "index"}}<span>Organization</span>{{/link-to}}</li>
+		</ul>
+		<!-- /.sidebar-menu -->
+	</section>
+	<!-- /.sidebar -->
+	<!--</div>-->
+</aside>
+<div class="content-wrapper">
+	{{outlet}}
+</div>
+<footer class="main-footer">
+	<div class="pull-right hidden-xs"><strong>SuratMasuk PPNI Jatim</strong> v 0.0.1</div>
+	<strong>Copyright © 2015&nbsp;<a href="#">PPNI</a>.</strong>&nbsp;All rights reserved.
+</footer>

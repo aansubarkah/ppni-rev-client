@@ -1,0 +1,9 @@
+{{#if isAdministrator}}
+{{administrator-index}}
+{{else if isManager}}
+{{manager-index}}
+{{else if isUser}}
+{{user-index}}
+{{else if isGuest}}
+{{guest-index}}
+{{/if}}
