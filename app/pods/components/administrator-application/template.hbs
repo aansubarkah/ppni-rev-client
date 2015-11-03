@@ -51,20 +51,21 @@
 		<!-- Sidebar Menu -->
 		<ul class="sidebar-menu">
 			<li class="header">Service</li>
-			<li>{{#link-to "index"}}<span>Direction</span>{{/link-to}}</li>
+			<li>{{#link-to "letters"}}<span>Letter</span>{{/link-to}}</li>
+			<li>{{#link-to "dispositions"}}<span>Disposition</span>{{/link-to}}</li>
 			<li class="header">Dynamic Data</li>
-			<li>{{#link-to "index"}}<span>Traffic</span>{{/link-to}}</li>
+			<li>{{#link-to "users"}}<span>User</span>{{/link-to}}</li>
+			<li>{{#link-to "senders"}}<span>Sender</span>{{/link-to}}</li>
 			<li class="header">Reference Data</li>
-			<li>{{#link-to "index"}}<span>Vias</span>{{/link-to}}</li>
-			<li>{{#link-to "users"}}<span>Users</span>{{/link-to}}</li>
-			<li>{{#link-to "departements"}}<span>Hierarchies</span>{{/link-to}}</li>
-			<li>{{#link-to "index"}}<span>Organization</span>{{/link-to}}</li>
+			<li>{{#link-to "departements"}}<span>Organization</span>{{/link-to}}</li>
+			<li>{{#link-to "hierarchy"}}<span>Hierarchy</span>{{/link-to}}</li>
+			<li>{{#link-to "vias"}}<span>Via</span>{{/link-to}}</li>
 		</ul>
 		<!-- /.sidebar-menu -->
 	</section>
 	<!-- /.sidebar -->
 </aside>
-<div class="content-wrapper">
+<div class="content-wrapper" style="min-height: 550px;">
 	{{outlet}}
 </div>
 <footer class="main-footer">

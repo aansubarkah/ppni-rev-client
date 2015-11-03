@@ -3,5 +3,5 @@ import config from '../../config/environment';
 
 export default DS.RESTAdapter.extend({
     host: config.APP.host,
-    namescape: config.APP.namescape
+    namespace: config.APP.namespace
 });

@@ -1,0 +1,9 @@
+{{#if isAdministrator}}
+
+{{administrator-hierarchy model=model}}
+
+{{else if isManager}}
+{{manager-departements}}
+{{else if isUser}}
+{{user-departements}}
+{{/if}}
