@@ -1,1 +1,12 @@
-{{outlet}}
+{{#if isAdministrator}}
+
+{{administrator-letters model=model
+queryParams=queryParams page=page
+limit=limit query=query total=total
+firstRowNumber=firstRowNumber}}
+
+{{else if isManager}}
+{{manager-departements}}
+{{else if isUser}}
+{{user-departements}}
+{{/if}}
