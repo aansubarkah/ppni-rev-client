@@ -12,12 +12,18 @@ export default Ember.Route.extend({
 		if (Ember.isPresent(params.query)) {
 			query.query = params.query;
 		}
-
-		return this.store.query('letter', query);
+		//return Ember.RSVP.hash({
+		return {
+			letters: this.store.query('letter', query),
+			vias: this.store.findAll('via')
+			//vias: this.store.findAll('vias')
+			//vias: this.store.query('via', query)
+		};
+		//return this.store.query('letter', query);
 	},
 	setupController: function (controller, model) {
 		this._super.apply(this, arguments);
-		controller.set('total', model.get('meta.total'));
+		controller.set('total', model.letters.get('meta.total'));
 	},
 	queryParams: {
 		page: {

@@ -1,29 +1,50 @@
 <div class="modal-header">
-    <button type="button" {{action "toggleAdd"}} class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h4 class="modal-title">Tambah Surat Masuk</h4>
+	<button type="button" {{action "toggleAdd"}} class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<h4 class="modal-title">Tambah Surat Masuk</h4>
 </div>
 <div class="modal-body">
-    <form>
-        <div class="form-group">
-            <input type="text" class="form-control" id="number" placeholder="Nomor">
-        </div>
-        <div class="form-group">
-            {{bootstrap-datepicker value=date class="form-control" placeholder="Tanggal" autoclose=true format="yyyy-mm-dd"}}
-        </div>
-        <div class="form-group">
-            <input type="text" class="form-control" id="sender" placeholder="Pengirim">
-        </div>
-        <div class="form-group">
-            <input type="text" class="form-control" id="content" placeholder="Perihal">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputFile">Berkas Surat</label>
-            <input type="file" id="exampleInputFile">
-            <p class="help-block">Unggah berkas surat masuk</p>
-        </div>
-    </form>
+	<form>
+		<div class="form-group">
+			<input type="text" class="form-control" id="number" placeholder="Nomor">
+		</div>
+		<div class="form-group">
+			<textarea class="form-control" id="content" placeholder="Perihal" rows="3"></textarea>
+		</div>
+		<div class="form-group">
+			{{twitter-typeahead
+			content=model.vias
+			displayKey="name"
+			valueToken="name"
+			on-select-without-match="autocompleteEmptyResult"
+			class="form-control"
+			placeholder="Pengirim"
+			}}
+		</div>
+		<div class="form-group">
+			{{select-picker
+			value=via_id
+			content=viaItems
+			optionGroupPath="group"
+			optionLabelPath="content.name"
+			optionValuePath="content.id"
+			action=(action "setSingleChoice")
+			nothingSelectedMessage="Dikirim Via"
+			nativeMobile=false
+			}}
+		</div>
+		<div class="form-group">
+			{{bootstrap-datepicker value=date
+			class="form-control" placeholder="Tanggal"
+			autoclose=true format="yyyy-mm-dd" orientation="right"
+			todayHighlight=true}}
+		</div>
+		<div class="form-group">
+			<input type="file" id="exampleInputFile">
+			<p class="help-block">Unggah berkas surat masuk</p>
+		</div>
+	</form>
 </div>
 <div class="modal-footer">
-    <button type="button" {{action "toggleAdd"}} class="btn btn-default" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary">Save</button>
+	<button type="button" {{action "toggleAdd"}} class="btn btn-default" data-dismiss="modal">Close</button>
+	<button type="button" class="btn btn-primary">Save</button>
 </div>
