@@ -8,15 +8,15 @@ export default Ember.Component.extend({
         var data = this.get('model').vias.toArray();
         return data;
     }.property('model'),
-	actions: {
-		toggleAdd: function() {
-			this.sendAction('toggleAdd');
-		},
+    actions: {
+        toggleAdd: function() {
+            this.sendAction('toggleAdd');
+        },
         setSingleChoice: function() {
             console.log(this.get('via_id'));
         },
         autocompleteEmptyResult: function() {
             console.log('tidak ada return');
         }
-	}
+    }
 });

@@ -8,9 +8,9 @@ module.exports = function(defaults) {
         minifyCSS: {
             enabled: true
         },
-        minifyJS: {
+        /*minifyJS: {
             enabled: true
-        },
+        },*/
         sourcemaps: {
             enabled: false,
             extensions: ['js']
@@ -51,6 +51,10 @@ module.exports = function(defaults) {
 
     // Hashids
     app.import('bower_components/hashids/lib/hashids.min.js');
+
+	// jquery-file-upload
+	app.import('bower_components/blueimp-file-upload/js/vendor/jquery.ui.widget.js');
+	app.import('bower_components/blueimp-file-upload/js/jquery.fileupload.js');
 
     return app.toTree();
 };
