@@ -7,22 +7,21 @@ export default Ember.Component.extend({
         this.$('input').fileupload({
             dataType: 'json',
             //url: this.get('uploadUrl'),
-            url: config.APP.host + '/' + config.APP.namespace + '/evidences/add',
+            url: config.APP.host + '/' + config.APP.namespace + '/evidences/upload',
             formData: function() {
                 return [{name: self.get('hiddenName'), value: self.get('hiddenValue')}];
             },
             done: function(e, data) {
                 //self.sendAction('uploaded', data.result);
                 //self.markCompleted(data.result.filenames);
-                console.log('sukses');
-                self.$('#progress .bar').html('berhasil mengunggah');
+                self.$('#progress .bar').html('berhasil mengunggah&nbsp;' + data.files[0].name);
             },
             fail: function (e, data) {
                 self.sendAction('failed', data.result);
             },
             add: function(e, data) {
                 data.process().done(function () {
-                    self.$('#progress .bar').html('sedang mengunggah');
+                    self.$('#progress .bar').html('sedang mengunggah&nbsp;' + data.files[0].name);
                     data.submit();
                 });
             },
@@ -31,10 +30,10 @@ export default Ember.Component.extend({
                 self.$('#progress .bar').html(
                     prog + '%');
                     console.log(prog);
-/*                self.$('#progress .bar').css(
-                    'width',
-                    progress + '%'
-                );*/
+                    /*self.$('#progress .bar').css(
+                      'width',
+                      prog + '%'
+                      );*/
             }
         });
     },
