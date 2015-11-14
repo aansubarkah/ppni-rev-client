@@ -36,6 +36,6 @@
 </section>
 {{#if isShowingAdd}}
 {{#modal-dialog close="toggleAdd" translucentOverlay=true container-class="modal-dialog"}}
-{{administrator-letters-add model=model toggleAdd=(action "toggleAdd")}}
+{{administrator-letters-add model=model store=store toggleAdd=(action "toggleAdd")}}
 {{/modal-dialog}}
 {{/if}}
