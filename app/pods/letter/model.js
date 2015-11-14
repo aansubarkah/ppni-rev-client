@@ -4,12 +4,17 @@ import {
 } from 'ember-cp-validations';
 
 var Validations = buildValidations({
-    number: validator('presence', true)
+    number: [
+        validator('presence', true),
+        validator('length', {
+            min: 1
+        })
+    ]
 });
 
 export default DS.Model.extend(Validations, {
     dispositions: DS.hasMany('disposition'),
-    evidences: DS.hasMany('evidence'),
+    evidences: DS.hasMany('evidence', {inverse: null}),
     sender: DS.belongsTo('sender'),
     user: DS.belongsTo('user'),
     via: DS.belongsTo('via'),
