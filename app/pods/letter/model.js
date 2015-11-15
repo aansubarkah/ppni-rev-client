@@ -13,11 +13,11 @@ var Validations = buildValidations({
 });
 
 export default DS.Model.extend(Validations, {
-    dispositions: DS.hasMany('disposition'),
+    dispositions: DS.hasMany('disposition', {inverse: null}),
     evidences: DS.hasMany('evidence', {inverse: null}),
-    sender: DS.belongsTo('sender'),
-    user: DS.belongsTo('user'),
-    via: DS.belongsTo('via'),
+    sender: DS.belongsTo('sender', {inverse: null}),
+    user: DS.belongsTo('user', {inverse: null}),
+    via: DS.belongsTo('via', {inverse: null}),
     sender_id: DS.attr('number'),
     user_id: DS.attr('number'),
     via_id: DS.attr('number'),
@@ -26,6 +26,9 @@ export default DS.Model.extend(Validations, {
     content: DS.attr('string'),
     created: DS.attr('string', {defaultValue: null}),
     modified: DS.attr('string', {defaultValue: null}),
-    isRead: DS.attr('boolean', {defaultValue: false}),
-    active: DS.attr('boolean', {defaultValue: true})
+    isread: DS.attr('boolean', {defaultValue: false}),
+    active: DS.attr('boolean', {defaultValue: true}),
+    // dummy fields
+    senderName: DS.attr('string', { defaultValue: null}),
+    fileName: DS.attr('string', { defaultValue: null})
 });

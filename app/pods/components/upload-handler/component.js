@@ -15,6 +15,7 @@ export default Ember.Component.extend({
                 //self.sendAction('uploaded', data.result);
                 //self.markCompleted(data.result.filenames);
                 self.$('#progress .bar').html('berhasil mengunggah&nbsp;' + data.files[0].name);
+                self.set('fileName', data.files[0].name);
             },
             fail: function (e, data) {
                 self.sendAction('failed', data.result);
@@ -22,6 +23,8 @@ export default Ember.Component.extend({
             add: function(e, data) {
                 data.process().done(function () {
                     self.$('#progress .bar').html('sedang mengunggah&nbsp;' + data.files[0].name);
+					self.$('.help-block').html('Unggah berkas&nbsp;' + data.files[0].name);
+					self.set('fileName', data.files[0].name);
                     data.submit();
                 });
             },

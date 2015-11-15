@@ -9,11 +9,12 @@ export default Ember.Component.extend({
     // table letters fields
     via_id: 3,
     user_id: 1,
-    sender: null,
+    senderName: null,
     sender_id: 1,
     number: null,
     date: null,
     content: null,
+    fileName: null,
     // ./table letters fields
     viaItems: function() {
         var data = this.get('model').vias.toArray();
@@ -30,14 +31,15 @@ export default Ember.Component.extend({
             // console.log('tidak ada return');
         },
         saving: function() {
-            var model = this.model;
+            //var model = this.model;
             var store = this.store;
             var via_id = this.get('via_id');
-            var sender = this.get('sender');
+            var senderName = this.get('senderName');
             var sender_id = this.get('sender_id');
             var number = this.get('number');
             var date = this.get('date');
             var content = this.get('content');
+            var fileName = this.get('fileName');
             var user_id = 1;
             var created = null;
             var modified = null;
@@ -50,9 +52,25 @@ export default Ember.Component.extend({
             } else {
                 date = moment(date).format('YYYY-MM-DD');
             }
-            store.createRecord('letter', {
-                number: number
+            var letter = store.createRecord('letter', {
+                via_id: via_id,
+                senderName: senderName,
+                sender_id: sender_id,
+                number: number,
+                date: date,
+                content: content,
+                fileName: fileName,
+                user_id: user_id,
+                created: created,
+                modified: modified,
+                isread: isread,
+                active: active
             });
+            letter.save().then(function() {
+                console.log('halo');
+            });
+            // @todo add server side script to execute
+            //store.save
             // console.log(sender);
 
         }
