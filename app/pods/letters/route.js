@@ -15,7 +15,8 @@ export default Ember.Route.extend({
 		//return Ember.RSVP.hash({
 		return {
 			letters: this.store.query('letter', query),
-			vias: this.store.findAll('via')
+			vias: this.store.findAll('via'),
+			senders: this.store.findAll('sender')
 			//vias: this.store.findAll('vias')
 			//vias: this.store.query('via', query)
 		};

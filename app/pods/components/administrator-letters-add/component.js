@@ -10,7 +10,7 @@ export default Ember.Component.extend({
     via_id: 3,
     user_id: 1,
     senderName: null,
-    sender_id: 1,
+    sender_id: 0,
     number: null,
     date: null,
     content: null,
@@ -31,7 +31,7 @@ export default Ember.Component.extend({
             // console.log('tidak ada return');
         },
         saving: function() {
-            //var model = this.model;
+            var model = this.model;
             var store = this.store;
             var via_id = this.get('via_id');
             var senderName = this.get('senderName');
@@ -52,6 +52,9 @@ export default Ember.Component.extend({
             } else {
                 date = moment(date).format('YYYY-MM-DD');
             }
+            // @todo
+            // fix date, date on model changed temporary to string format
+            // console.log(date);
             var letter = store.createRecord('letter', {
                 via_id: via_id,
                 senderName: senderName,
@@ -68,6 +71,7 @@ export default Ember.Component.extend({
             });
             letter.save().then(function() {
                 console.log('halo');
+                //model.reload();
             });
             // @todo add server side script to execute
             //store.save

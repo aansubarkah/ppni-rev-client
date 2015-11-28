@@ -22,7 +22,7 @@ export default DS.Model.extend(Validations, {
     user_id: DS.attr('number'),
     via_id: DS.attr('number'),
     number: DS.attr('string'),
-    date: DS.attr('date'),
+    date: DS.attr('string'),
     content: DS.attr('string'),
     created: DS.attr('string', {defaultValue: null}),
     modified: DS.attr('string', {defaultValue: null}),
