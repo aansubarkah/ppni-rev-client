@@ -1,3 +1,6 @@
+//to make JSHint happy
+/*global moment:false*/
+
 import Ember from 'ember';
 
 export default Ember.Route.extend({
@@ -21,6 +24,14 @@ export default Ember.Route.extend({
 	setupController: function (controller, model) {
 		this._super.apply(this, arguments);
 		controller.set('total', model.letters.meta.total);
+
+		// --------------------------------------------------------
+		// ---------- reformat date field on model.letters --------
+		// --------------------------------------------------------
+		model.letters.forEach(function(item) {
+			model.letters.set('date', moment(item.get('date')).format('Do MMMM YYYY'));
+			console.log(moment(item.get('date')).format('Do MMMM YYYY'));
+		});
 	},
 	queryParams: {
 		page: {
