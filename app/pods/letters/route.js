@@ -12,19 +12,15 @@ export default Ember.Route.extend({
 		if (Ember.isPresent(params.query)) {
 			query.query = params.query;
 		}
-		//return Ember.RSVP.hash({
-		return {
+		return Ember.RSVP.hash({
 			letters: this.store.query('letter', query),
 			vias: this.store.findAll('via'),
 			senders: this.store.findAll('sender')
-			//vias: this.store.findAll('vias')
-			//vias: this.store.query('via', query)
-		};
-		//return this.store.query('letter', query);
+		});
 	},
 	setupController: function (controller, model) {
 		this._super.apply(this, arguments);
-		controller.set('total', model.letters.get('meta.total'));
+		controller.set('total', model.letters.meta.total);
 	},
 	queryParams: {
 		page: {

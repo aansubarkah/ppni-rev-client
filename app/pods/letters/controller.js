@@ -8,9 +8,8 @@ export default Ember.Controller.extend({
 	isGuest: Ember.computed.reads('applicationController.isGuest'),
 	queryParams: ['page', 'limit', 'query'],
 	page: 1,
-	limit: 10,
+	limit: 1,
 	query: '',
-	total: null,
 	firstRowNumber: function () {
 		return (((this.page - 1) * this.limit) + 1);
 	}.property('page', 'limit')
