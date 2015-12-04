@@ -18,8 +18,8 @@
 					{{#each model.letters as | datum index |}}
 					<tr>
 						<td width="5%">{{basic-math index "+" firstRowNumber}}</td>
-						<td width="10%">{{datum.date}}</td>
-                        <td width="30%">{{datum.number}}</td>
+						<td width="20%">{{date-formater datum.date}}</td>
+                        <td width="20%">{{datum.number}}</td>
                         <td width="55%">{{datum.content}}</td>
 					</tr>
 					{{else}}
