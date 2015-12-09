@@ -16,7 +16,7 @@
 				</thead>
 				<tbody>
 					{{#each model.letters as | datum index |}}
-					<tr>
+                    <tr {{action "toggleView"}}>
 						<td width="5%">{{basic-math index "+" firstRowNumber}}</td>
 						<td width="20%">{{date-formater datum.date}}</td>
                         <td width="20%">{{datum.number}}</td>
@@ -37,5 +37,10 @@
 {{#if isShowingAdd}}
 {{#modal-dialog close="toggleAdd" translucentOverlay=true container-class="modal-dialog"}}
 {{administrator-letters-add model=model store=store toggleAdd=(action "toggleAdd")}}
+{{/modal-dialog}}
+{{/if}}
+{{#if isShowingView}}
+{{#modal-dialog close="toggleView" translucentOverlay=true container-class="modal-dialog"}}
+{{administrator-letters-view model=model store=store toggleView=(action "toggleView")}}
 {{/modal-dialog}}
 {{/if}}
